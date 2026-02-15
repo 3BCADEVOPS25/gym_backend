@@ -11,11 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Build Docker Image
         run: |
-          cd gym/gym
+          cd gym_backend/gym/gym
           docker build -t gym-backend .
-
