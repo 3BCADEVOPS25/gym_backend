@@ -7,11 +7,22 @@ on:
       - feature/backend-gym-crud
 
 jobs:
-  docker-build:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Build with Maven
+        run: |
+          cd gym_backend/gym/gym
+          mvn clean package -DskipTests
 
       - name: Build Docker Image
         run: |
