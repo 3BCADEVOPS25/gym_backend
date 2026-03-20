@@ -34,8 +34,3 @@ jobs:
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
           -Dsonar.qualitygate.wait=false
-          -Dsonar.exclusions=**/**
-          -Dsonar.coverage.exclusions=**/**
-          -Dsonar.issue.ignore.multicriteria=e1
-          -Dsonar.issue.ignore.multicriteria.e1.ruleKey=*
-          -Dsonar.issue.ignore.multicriteria.e1.resourceKey=**/**
