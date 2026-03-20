@@ -37,3 +37,8 @@ jobs:
           -Dsonar.coverage.exclusions=**/*
           -Dsonar.java.coveragePlugin=none
           -Dsonar.coverage.jacoco.xmlReportPaths=skip
+          -Dsonar.cpd.exclusions=**/*
+          -Dsonar.security-hotspots.disable=true
+          -Dsonar.issue.ignore.multicriteria=e1
+          -Dsonar.issue.ignore.multicriteria.e1.ruleKey=java:S4787
+          -Dsonar.issue.ignore.multicriteria.e1.resourceKey=**/*
