@@ -16,9 +16,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Find pom.xml
-        run: find . -name "pom.xml" | head -5
-
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -27,7 +24,7 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean package -DskipTests
-        working-directory: ./gym/gym
+        working-directory: ./gym_backend/gym/gym
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -39,7 +36,7 @@ jobs:
 
       - name: Build and Push Docker image
         run: |
-          docker build -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:latest ./gym/gym
+          docker build -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:latest ./gym_backend/gym/gym
           docker push ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:latest
 
       - name: Deploy to Azure App Service
